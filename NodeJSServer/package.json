@@ -1,8 +1,7 @@
 {
-  "name": "beeblebrox-ctf",
-  "version": "1.0.1",
-  "description": "A WebServer for the BeeblebroxCTF",
-  "bin": "./app.js",
+  "name": "consecur-ctf",
+  "version": "1.0.0",
+  "description": "",
   "main": "app.js",
   "dependencies": {
     "app-root-path": "^2.2.1",
@@ -37,6 +36,5 @@
   },
   "keywords": [],
   "author": "Henrik Gerdes",
-  "url" : "https://github.com/hegerdes/BeeblebroxCTF",
   "license": "MIT"
 }

@@ -1,4 +1,4 @@
-# Beeblebrox CTF Solution Guide
+# ConSecur CTF Solution Guide
 
 This Solution - Guide shows you how to solve level x.
 

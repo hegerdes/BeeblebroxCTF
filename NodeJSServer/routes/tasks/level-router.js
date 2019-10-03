@@ -15,7 +15,7 @@ router.get('/', auth.optional, (req, res, next) => {
     user = userinfo.email;
   }
   res.render('task/task-index', {
-    title: 'Beeblebrox CTF',
+    title: 'ConSecur CTF',
     data: level_links,
     users: user,
   });

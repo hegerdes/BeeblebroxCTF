@@ -2,9 +2,9 @@
 
 ## About this ctf
 
-### Welcome to the Beeblebrox CTF
+### Welcome to the ConSecur CTF
 
-This is a training program provided by Beeblebrox to teach some basic knowledge about remotely managing Linux systems, penetration testing, information gathering and other techniques that an attacker might use to compromise a company's security system.
+This is a training program provided by ConSecur to teach some basic knowledge about remotely managing Linux systems, penetration testing, information gathering and other techniques that an attacker might use to compromise a company's security system.
 
 ### 🙌 Motivation and Goal
 

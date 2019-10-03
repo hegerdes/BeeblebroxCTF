@@ -45,7 +45,7 @@ sudo python3 Tools/deployCTF.py
 
 ## Author
 
-* **Henrik Gerdes** - *Initial work* - [Beeblebrox CTF](https://github.com/hegerdes/BeeblebroxCTF)
+* **Henrik Gerdes** - *Initial work* - [ConSecur CTF](https://github.com/hegerdes/ConSecurCTF)
 
 ## Acknowledgments
 

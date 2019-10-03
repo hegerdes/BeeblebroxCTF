@@ -11,7 +11,7 @@ if __name__ == "__main__":
     tools.checkSudo()
     tools.chechandsetCWD()
 
-    print('Hello. This Script will try to deploy the Beeblebrox CTF')
+    print('Hello. This Script will try to deploy the ConSecur CTF')
     print('Starting with the needed tools')
     
     #Ceck installed tools

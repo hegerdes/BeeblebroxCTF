@@ -354,7 +354,7 @@ def sshX11():
     tools.check_output(ps)
 
 def alterhosts():
-    hosts_edit = 'echo "127.0.0.1       BeeblebroxCTF.com" | tee -a /etc/hosts'
+    hosts_edit = 'echo "127.0.0.1       ConSecurCTF.com" | tee -a /etc/hosts'
     ps = Popen([hosts_edit], stdin=PIPE, stdout=PIPE, stderr=PIPE, shell=True)
     tools.check_output(ps)
 
