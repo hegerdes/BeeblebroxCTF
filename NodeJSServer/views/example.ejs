@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<% include partials/head %>
+<body>
+
+<!-- Navbar -->
+<% include partials/navbar %>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Levels</b></h4>
+  <%for(var i = 0; i < data.length; i++)
+  {%>
+    <a class="w3-bar-item w3-button w3-hover-black" href= <%= "task/" + data[i].url %> title= " <%= data[i].name %> " >Go To <%= data[i].Discription %></a>
+  <%}%>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 id="about">Examples:</h1>    
+
+      <%switch (num) {
+      case "1":%> <h3>This is an bash example of a for loop.<br></h3>
+      <pre><code class="bash language-bash w3-codespan">#!/bin/bash
+for i in {0000..9999}
+do
+    echo $i;
+done</code></pre>
+        <p>For more examples click below:</p>
+        <a href="https://www.cyberciti.biz/faq/bash-for-loop/" class="button buttonTipp w3-my-button" target="_blank">Klick Here</a>
+      <% break;
+      case "2":%> <h3>This is a python example.<br></h3>
+      <pre><code class="python language-python w3-codespan">#!/usr/bin/env python3
+import time
+import requests
+
+
+cookies = {'Auth': KEY}
+
+for i in range(0000,9999):
+Data = {'FORM_NAME' : KEY}
+r = requests.post(URL, data=Data, cookies=cookies)
+      </code></pre>
+      <p>For more examples click below:</p>
+      <a href="https://realpython.com/python-requests/" class="button buttonTipp w3-my-button" target="_blank">Klick Here</a><% break;
+      default: %><h3>No more examples here.<br></h3> <%
+
+      }%>
+
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <% include partials/footer %>
+
+<!-- END MAIN -->
+</div>
+
+
+<!-- Scripts -->
+<% include partials/scripts %>
+
+</body>
+</html>

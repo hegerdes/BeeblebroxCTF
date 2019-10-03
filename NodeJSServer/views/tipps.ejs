@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<% include partials/head %>
+<body>
+
+<!-- Navbar -->
+<% include partials/navbar %>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Levels</b></h4>
+  <%for(var i = 0; i < data.length; i++)
+  {%>
+    <a class="w3-bar-item w3-button w3-hover-black" href= <%= "task/" + data[i].url %> title= " <%= data[i].name %> " >Go To <%= data[i].Discription %></a>
+  <%}%>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal"> General Tipps</h1>
+      <div class="w3-third w3-container"></div>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h3 class="w3-text-teal">The Terminal</h3>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://towardsdatascience.com/basics-of-bash-for-beginners-92e53a4c117a" title="Get to know the terminal">Get to know the Terminal</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell" title="Git Branching">Git Branching</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://www.cyberciti.biz/faq/bash-for-loop/" title="Some basic bash scripts">Some basic bash scripts</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://www.howtogeek.com/howto/42980/the-beginners-guide-to-nano-the-linux-command-line-text-editor/" title="Getting started with nano">Getting started with nano</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="http://www.jesshamrick.com/2012/09/10/absolute-beginners-guide-to-emacs/" title="Getting started with emacs">Getting started with emacs</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://ryanstutorials.net/linuxtutorial/piping.php" title="Piping and Redirection">Piping and Redirection</a></p>
+      <p>Ctr+Shift+C to <b>copy</b> text form the terminal.</p>
+      <p>Ctr+Shift+Past to <b>past</b> text to the terminal.</p>
+      <p>Use <b>">"</b> or <b>"<"</b> to send the output of a programm to a file. </p>
+      <p>Use <b>"|"</b> to send the output to another programm. Like: <code> cat ReadMe.md | grep Hello </code> </p>
+    </div>
+  </div>
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h3 class="w3-text-teal">The Web</h3>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://developer.mozilla.org/de/docs/Tools" title="Docs Firefox dev-tools">Docs Firefox dev-tools</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://developers.google.com/web/tools/chrome-devtools/" title="Docs Firefox dev-tools">Docs Chrome dev-tools</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://www.tutorialspoint.com/de/http/http_methods.htm" title="How do http reqests work">How do http reqests work</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://learning.getpostman.com/docs/postman/launching_postman/sending_the_first_request/" title="Postman your first request">Postman your first request</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://mariadb.com/kb/en/library/basic-sql-statements/" title="SQL Querys">SQL Querys</a></p>
+      <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://mariadb.com/kb/en/library/basic-sql-statements/" title="SQL Querys">SQL Querys</a></p>
+    </div>
+   </div>  
+      
+    <div class="w3-row w3-padding-16">
+      <div class="w3-twothird w3-container">
+        <h3 class="w3-text-teal">Other</h3>
+        <p>Take notes with code or sublime</p>
+        <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://code.visualstudio.com/docs/introvideos/basics" title="VSCode">VSCode</a></p>
+        <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://hackernoon.com/sublime-text-101-a-quick-overview-for-beginners-7cc5cd1dd9bb" title="Sublime-Text">Sublime-Text</a></p>
+        <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://www.python.org/about/gettingstarted/" title="Python getting started">Python getting started</a></p>
+        <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://pypi.org/project/requests/2.7.0/" title="Python-requests doku">Python-requests doku</a></p>
+        <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://www.openwall.com/john/doc/" title="Python-requests doku"> john the ripper doku</a></p>
+        <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://nmap.org/docs.html" title="nmap doku">nmap doku</a></p>
+        <p>Usful Link:<a class="w3-border-0 w3-padding-large" href="https://wiki.ubuntuusers.de/Steghide/" title="Steghide">Steghide</a></p>
+      </div>
+    </div>
+
+  <!-- Footer -->
+  <% include partials/footer %>
+
+<!-- END MAIN -->
+</div>
+
+
+<!-- Scripts -->
+<% include partials/scripts %>
+
+</body>
+</html>

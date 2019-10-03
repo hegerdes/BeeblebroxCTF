@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<% include ../partials/head %>
+<body>
+
+    <%if(logedin)
+        {%>
+        <div class="mycenter-info">
+            <p>User: ctf10. Password: D2g8okMqFaGJbt7aG6MEPM9LoLbKfemr </p>
+        </div>
+      <%}else
+      {%>
+        <div class="heading">
+        <section class="heading-form-wrap">
+              <h1 class = "w3-text-teal">Hello CTF10!</h1>
+          <h4 class="w3-text-teal">Please enter your PIN to see your information</h4>
+        </section>
+      </div>
+      <section class="login-form-wrap-sql">
+        <form class="login-form" action="/ctf/ctf9" method="post">
+            <div>
+                <label>PIN:</label>
+                <input type="text" name="text" required placeholder="PIN"/>
+            </div>
+            <div>
+                <input type="submit" value="Check user"/>
+            </div>
+        </form>
+      </section>
+      <%if(wrong)
+        {%>
+        <div class="mycenter-info2">
+            <p>WRONG PIN. Try again.</p>
+        </div>
+      <%}%>
+
+      <%}%>
+
+
+      
+</body>
+</html>

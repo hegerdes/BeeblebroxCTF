@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<% include ../partials/head %>
+<% include ../partials/navbar %>
+
+
+<body>
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container ">
+    </div>
+  </div>
+
+  <div class="w3-row mycenter w3-padding-64">
+    <div class=" w3-container ">
+      <h1> <%= title %></h1>
+      <h3><%= status %></h3>
+      <p><%= message %></p>
+      <a href="/" class="w3-bar-item w3-button w3-hide-small w3-hover-black my-round-link">Go Back</a>
+      <a href="/login" class="w3-bar-item w3-button w3-hide-small w3-hover-black my-round-link">Login</a>
+    </div>
+  </div>
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container ">
+    </div>
+  </div>
+
+  <% include ../partials/footer %>
+</body>
+</html>

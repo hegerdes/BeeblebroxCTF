@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <link rel='stylesheet' href='/stylesheets/w3-schools.css'>
+    <link rel='stylesheet' href='/stylesheets/w3-black.css'>
+    <link rel='stylesheet' href='/stylesheets/font-google.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  
+  
+  <body>
+    <!-- Navbar -->
+    <% include partials/navbar %>
+    
+    <div class="heading">
+      <section class="heading-form-wrap">
+        <h1 class = w3-text-teal>Congratulation!</h1>
+      </section>
+    </div>
+    <section class="login-form-wrap">
+      <h3>You are logedin as:</h3> 
+      <br>
+      <h2><%=users%></h2>
+    </section>
+
+    <script>
+      setTimeout(function () {
+         // after 2 seconds
+         window.location = "/task";
+      }, 2000)
+    </script>
+
+      <!-- Footer -->
+  <% include partials/footer %>
+  </body>
+</html>

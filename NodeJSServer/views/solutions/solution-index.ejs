@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<% include ../partials/head %>
+<body>
+
+<!-- Navbar -->
+<% include ../partials/navbar %>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Levels</b></h4>
+  <%for(var i = 0; i < data.length; i++)
+  {%>
+    <a class="w3-bar-item w3-button w3-hover-black" href= <%= "solution/" + data[i].url %> title= " <%= data[i].name %> " >Go To <%= data[i].Discription %></a>
+  <%}%>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal"> Welcome to the Solution-Guide</h1>
+      <div class="welcome-text">
+        <p>This is the build in Solution-Guide. It shows you how every level can be solved. Again: how it can be solved. Often there is more than one way to coplete the level. If you did it in another maybe even faster way did a great job. Please wirte down your solution and give it to Beeblebrox. Otherwiese the Solution-Guide may gives you some ideas how to get to your goal.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container">
+      <div class="solution">
+        <h3 class="w3-text-teal">🏁  How the solutions work</h3>
+        <p>Once again every level has its own solution page. You can only view the solution to a level if you are loged in with the user  of the next level. Use the top right button to log in.</p>
+        <p>Example:<br> If you are loged in as <b>ctf5</b> you can view the solution for:</p>
+        <ul>
+          <li>Level0</li>
+          <li>Level1</li>
+          <li>Level2</li>
+          <li>Level3</li>
+          <li>Level4</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container w3-padding-48">
+      <div class="solution">
+        <h3 class="w3-text-teal">🖨️ Printed solutions</h3>
+        <p>There is a printed version of the Solution-Guide. This is only for the case you are stuck, tryed everything you know and if you have no idea on how to go on. Ask hegerdes at GitHub.</p>
+      </div>
+    </div>
+  </div>  
+  
+
+  <!-- Footer -->
+  <% include ../partials/footer %>
+
+<!-- END MAIN -->
+</div>
+
+
+<!-- Scripts -->
+<% include ../partials/scripts %>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<% include ../partials/head %>
+<body>
+
+<!-- Navbar -->
+<% include ../partials/navbar %>
+
+<!-- Sidebar -->
+<% include ../partials/sidebar %>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-own">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal"><%= title %></h1>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h2 class="w3-text-teal">Description:</h2>
+        <div class="disciption-para">
+        <%for(var i = 0; i < discription.length; i++)
+          {%>
+            <p><%= discription[i] %></p>
+          <%}%>
+        </div>
+        <%if(link != 'non')
+        {%>
+          <a href="<%= link %>" class="button buttonTipp w3-my-button" target="_blank">Klick Here</a>
+        <%}%>
+        <%if(discription.length < 2)
+        {%>
+          <p>EXAMPLE TEXT: Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        <%}%>
+    </div>
+  </div>
+    
+    <div class="w3-row w3-padding-64">
+      <div class="w3-twothird w3-container">
+        <h2 class="w3-text-teal">Useful Commands:</h2>
+        <p>Commands you might want to look at:</p>
+        <ul>
+          <%for(var i = 0; i < commands.length; i++)
+          {%>
+          <li><%= commands[i] %></li>
+          <%}%>
+        </ul>
+        <p>These commands might help you to complete this level. If you don't know how to use them you can look at the manpages.
+        <p>man is the system's manual viewer; it can be used to display manual pages, scroll up and down, search for occurrences of specific text, and other useful functions. Each argument given to man is normally the name of a program, utility or function. The manual page associated with each of these arguments is then found and displayed.
+     </div>
+    </div>
+                 
+    <div class="w3-row w3-padding-8">
+      <div class="w3-twothird w3-container">
+        <button class="button buttonTipp" onclick="toggleTipps()">Show Tipps</button>
+      </div>
+    </div>
+
+    <div id="tipps_div" style = "Display:none">
+      <div class="w3-row">
+        <div class="w3-twothird w3-container">
+          <h3 class="w3-text-teal">Tipp:</h3>
+          <%for(var i = 0; i < tipp.length; i++)
+            {%>
+              <p><%= tipp[i] %></p>
+            <%}%>
+        </div>
+      </div>
+    </div>
+
+  <script>
+    function toggleTipps() {
+      var x = document.getElementById("tipps_div");
+      if (x.style.display === "none") {
+        x.style.display = "block";
+      } else {
+        x.style.display = "none";
+      }
+    }
+  </script>
+
+  <!-- Footer -->
+  <% include ../partials/footer %>
+
+<!-- END MAIN -->
+</div>
+
+
+<!-- Scripts -->
+<% include ../partials/scripts %>
+
+</body>
+</html>

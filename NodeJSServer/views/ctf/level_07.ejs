@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<% include ../partials/head %>
+<body>
+    <%if(allowed)
+    { %>
+      <% include ../partials/navbar %>
+    <div class="mycenter-info">
+        <p>Hello ctf8. Your password is: Js9VryWFHbVRkti9RRzHaJT9Ht2hHAi3 </p>
+    </div>
+
+    <footer id="myFooter">
+    <div class="w3-container w3-theme-l2 w3-padding-32">
+      <h4>Right now there is not much you can do here. More features will <b>come soon!</b></h4>
+    </div>
+  </footer>
+    <%}else{%>
+        
+
+    <div class="heading">
+      <section class="heading-form-wrap">
+        <h1 class= "w3-text-teal">Hello!</h1>
+        <h4 class="w3-text-teal">To see the information about ctf8 please login as ctf8.</h4>
+      </section>
+    </div>
+    <section class="login-form-wrap">
+      <form class="login-form" action="/login" method="post">
+          <div>
+              <label>Username:</label>
+              <input type="text" name="email" required placeholder="Email"/>
+          </div>
+          <div>
+              <label>Password:</label>
+              <input type="password" name="password" required placeholder="Password"/>
+          </div>
+          <div>
+              <input type="submit" value="Log In"/>
+          </div>
+      </form>
+    </section>
+    <%}%>
+</body>
+</html>

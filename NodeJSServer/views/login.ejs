@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css'>
+    <link rel='stylesheet' href='/stylesheets/w3-schools.css'>
+    <link rel='stylesheet' href='/stylesheets/w3-black.css'>
+    <link rel='stylesheet' href='/stylesheets/font-google.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  
+  
+  <body>
+    <!-- Navbar -->
+    <% include partials/navbar %>
+    
+    <div class="heading">
+      <section class="heading-form-wrap">
+          <%if(users != 'non')
+          {%>
+            <h1 class = "w3-text-teal">Loged off. Please Login again.</h1>
+          <%} else {%>
+            <h1 class = "w3-text-teal"><%= title %></h1>
+          <%}%>
+        <h4 class="w3-text-teal">Please fill in your information.</h4>
+      </section>
+    </div>
+    <section class="login-form-wrap">
+      <form class="login-form" action="/login" method="post">
+          <div>
+              <label>Username:</label>
+              <input type="text" name="email" required placeholder="Email"/>
+          </div>
+          <div>
+              <label>Password:</label>
+              <input type="password" name="password" required placeholder="Password"/>
+          </div>
+          <div>
+              <input type="submit" value="Log In"/>
+          </div>
+      </form>
+    </section>
+
+      <!-- Footer -->
+  <% include partials/footer %>
+  </body>
+</html>

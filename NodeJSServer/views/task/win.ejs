@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<% include ../partials/head %>
+<body>
+
+<!-- Navbar -->
+<% include ../partials/navbar %>
+
+<!-- Sidebar -->
+<% include ../partials/sidebar %>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-own">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal"><%= title %></h1>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h2 class="w3-text-teal">🙌 Congratulation!! You did it 🎉</h2>
+        <div class="disciption-para">
+          <div class="welcome-text">
+              <p>For now, you competed all 15 levels. That's all there is for now.</p>
+              <p>I really hope you liked this training and had some fun. In the best case, you have also learned something.</p>
+              <p>I wish you the best for your next tasks and remember: Don't <b>ever</b> forget your towel.</p>
+          </div>
+    </div>
+  </div>
+    
+    <div class="w3-row w3-padding-64">
+      <div class="w3-twothird w3-container">
+        <h2 class="w3-text-teal">Be proud!</h2>
+        <h3 class="w3-text-teal">You now can:</h3>
+        <ul>
+            
+          <li>Safely navigate through Linux</li>
+          <li>Manipulate text files</li>
+          <li>Write basic bash scripts</li>
+          <li>Know some common encodings</li>
+          <li>Know how to secure ssl querys</li>
+          <li>Know how authentication on the web works</li>
+          <li>Know how to scrape the web with python</li>
+          <li>Can crack passwords</li>
+          <li>Search network for open ports</li>
+        </ul>
+     </div>
+    </div>
+
+    <div class="w3-row w3-padding-8">
+      <div class="w3-twothird w3-container">
+        <h2 class="w3-text-teal">Feedback!</h2>
+        <p>Feedback is welcome. You can wrire to:</p>
+        <p>Henrik Gerdes -> hegerdes@uni-osnabrueck.de (Intern)</p>
+     </div>
+    </div>
+
+  <!-- Footer -->
+  <% include ../partials/footer %>
+
+<!-- END MAIN -->
+</div>
+
+
+<!-- Scripts -->
+<% include ../partials/scripts %>
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<% include ../partials/head %>
+<body>
+
+    <%if(iphone)
+    {%>
+        <div class="mycenter-info">
+            <p>User: ctf8. Password: SCZ4Ujm6fdoEnW4FejSt3v2kTcLh72VE </p>
+        </div>
+        <script>
+            setTimeout(function () {
+               // Close 1 sec 
+               window.location = "/task";
+            }, 1000)
+        </script>
+    <%} else {%>
+        <div class="mycenter-info">
+            <p>Only IPhone users can access this page. </p>
+        </div>
+    <%}%>
+
+
+      
+</body>
+</html>

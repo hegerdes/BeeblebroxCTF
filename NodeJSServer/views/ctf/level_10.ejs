@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<% include ../partials/head %>
+<body>
+
+    <!-- DEBUG INFO -- DO NOT PUT THIS IN PRODUCTION!
+
+    TABLE-INFO
+    CREATE TABLE ctf9.Data (user varchar(100) NOT NULL, pw varchar(100) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+    
+    const pool = mariadb.createPool({
+        host: 'localhost',
+        user: '*****',
+        connectionLimit: 5,
+        password: '*****',
+        database: 'ctf9',
+    });
+
+    var query = 'SELECT user from Data WHERE user LIKE "' + userinput + '" '; -->
+
+    <div class="heading">
+        <section class="heading-form-wrap">
+              <h1 class = "w3-text-teal">User Check!</h1>
+          <h4 class="w3-text-teal">Fill in the username to see if the user exists on this site</h4>
+        </section>
+      </div>
+      <section class="login-form-wrap-sql">
+        <form class="login-form" action="/ctf/ctf10" method="post">
+            <div>
+                <label>Username:</label>
+                <input type="text" name="text" required placeholder="Username"/>
+            </div>
+            <div>
+                <input type="submit" value="Check user"/>
+            </div>
+        </form>
+      </section>
+
+
+      
+</body>
+</html>

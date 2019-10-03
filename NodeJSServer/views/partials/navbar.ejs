@@ -1,0 +1,21 @@
+<!-- Navbar -->
+<div class="w3-top">
+    <div class="w3-bar w3-theme w3-top w3-left-align w3-large">
+      <a class="w3-bar-item w3-button w3-left w3-hide-large w3-hover-white w3-large w3-theme-l1" href="javascript:void(0)" onclick="w3_open()"><i class="fa fa-bars"></i></a>
+      <!-- Picture or not? -->
+      <!-- <a href="https://www.Beeblebrox.de/"><img class="w3-bar-item w3-button w3-hide-small w3-hover-white" src="/pics/Beeblebrox_logo.jpg" alt="Beeblebrox Logo" width="120" height="45"></a> -->
+      <a href="/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Beeblebrox<sub><code class="CS-Logo"></sub></code></a>
+      <a href="/" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Home</a>
+      <a href="/solution" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Solutions</a>
+      <a href="/about" class="w3-bar-item w3-button w3-hide-small w3-hover-white">About</a>
+      <a href="/credits" class="w3-bar-item w3-button w3-hide-small w3-hover-white">Credits</a>
+      <a href="/tipps" class="w3-bar-item w3-button w3-hide-small w3-hover-white">General Tipps</a>
+      <%if(users != 'non' && title != 'Log in to CTF')
+      {%>
+        <a href="/login" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">Logout </a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">Loged in as <%= users %> </a>
+      <%} else {%>
+        <a href="/login" class="w3-bar-item w3-button w3-hide-small w3-hover-white w3-right">Login</a>
+      <%}%>
+    </div>
+  </div>

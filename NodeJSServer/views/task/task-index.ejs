@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<% include ../partials/head %>
+<body>
+
+<!-- Navbar -->
+<% include ../partials/navbar %>
+
+<!-- Sidebar -->
+<nav class="w3-sidebar w3-bar-block w3-collapse w3-large w3-theme-l5 w3-animate-left" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-right w3-xlarge w3-padding-large w3-hover-black w3-hide-large" title="Close Menu">
+    <i class="fa fa-remove"></i>
+  </a>
+  <h4 class="w3-bar-item"><b>Levels</b></h4>
+  <%for(var i = 0; i < data.length; i++)
+  {%>
+    <a class="w3-bar-item w3-button w3-hover-black" href= <%= "task/" + data[i].url %> title= " <%= data[i].name %> " >Go To <%= data[i].Discription %></a>
+  <%}%>
+</nav>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- Main content: shift it to the right by 250 pixels when the sidebar is visible -->
+<div class="w3-main" style="margin-left:250px">
+
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h1 class="w3-text-teal"> Welcome to the Beeblebrox CTF</h1>
+      <div class="welcome-text">
+        <p>This is a training program provided by hegerdes to teach some basic knowledge about remotely managing Linux systems, penetration testing, information gathering and other techniques that an attacker might use to compromise a company's security system.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h3 class="w3-text-teal">🙌 Motivation and Goal</h3>
+      <p>In this program are some real world techniques that have been used to extract information or harm companies. Some of them are still used. It's important to know these techniques, how your company handles security and how to prevent others to use these techniques to compromise your company.</p>
+      <p>The goal is to complete all 16 levels of this program. To do so you need to find the password for every level, log into it and find the next password. Every level has its own web page and own user account on this system. The web page gives you information and tips for each level.</p>
+    </div>
+  </div>
+
+  <div class="w3-row">
+    <div class="w3-twothird w3-container">
+      <h3 class="w3-text-teal">🎮 How to Play</h3>
+      <p>Congratulation!! If you see this you are probably already logged into the first user account. If not do so. Use the user ctf and password ctf.</p>
+      <p>To get access to the next level you need to find the password for the next user. The next password is always somehow hidden in your current level. Every password is 32 characters long and only has ASCII characters (so numbers, lower and uppercase letters). To brute forcing it will be quite hard 😝</p>
+      <p>To find the next password lunch the terminal and start searching. If you found it use ssh to log in to the next user/level. Using the graphical login will not give you any advantages. It will only slow you down and make the training less realistic.</p>
+    </div>
+  </div>  
+  
+  <div class="w3-row w3-padding-64">
+    <div class="w3-twothird w3-container">
+      <h3 class="w3-text-teal">🏁 Get stated and don't give up</h3>
+      <p>To make your life easier I installed some extra software like vscode, vim, emacs, sublime-text, build and debug tools, a networksniffer and python3 for scripting. These are some common tools, and they have lots of resources online if you need any help.</p>
+      <p>Sometimes it's not obviously how to solve the level. If you are stuck don't frustrate. While testing a real world application you will get stuck too. Just rethink your strategy. Inform yourself about the services on the system and their potential weaknesses. If the service expects a 0 give them a 1. Get a sense of breaking things.</p>
+    <p>Click <a href= "task/ctf0"> here</a> to start with the first level. Good Luck! 👍</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <% include ../partials/footer %>
+
+<!-- END MAIN -->
+</div>
+
+
+<!-- Scripts -->
+<% include ../partials/scripts %>
+
+</body>
+</html>

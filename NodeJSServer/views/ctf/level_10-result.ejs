@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<% include ../partials/head %>
+
+<body>
+
+    <!-- DEBUG INFO -- DO NOT PUT THIS IN PRODUCTION!
+
+    TABLE-INFO
+    CREATE TABLE ctf9.Data (user varchar(100) NOT NULL, pw varchar(100) NOT NULL) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci
+    
+    const pool = mariadb.createPool({
+        host: 'localhost',
+        user: '*****',
+        connectionLimit: 5,
+        password: '*****',
+        database: 'ctf9',
+    });
+
+    var query = 'SELECT user from Data WHERE user LIKE "' + userinput + '" '; -->
+
+    <div class="heading">
+        <section class="heading-form-wrap">
+            <h1 class = "w3-text-teal">User Check!</h1>
+            <h4 class="w3-text-teal">Fill in the username to see if the user exists on this site</h4>
+        </section>
+    </div>
+    <section class="login-form-wrap-sql">
+      <form class="login-form" action="/ctf/ctf10" method="post">
+          <div>
+              <label>Username:</label>
+              <input type="text" name="text" required placeholder="Username"/>
+          </div>
+          <div>
+              <input type="submit" value="Check user"/>
+          </div>
+      </form>
+    </section>
+
+
+    <div class="w3-container w3-quarter"></div>
+    <div class="w3-container w3-half">
+        <ul class="w3-ul w3-card-4">
+            <%if(out.length < 1)
+            {%>
+                <p>Nothing found or invalid input</p>
+            <%}else 
+            {%>
+                <%for(var i = 0; i < out.length; i++)
+                  { var pic = i % 4;
+                    if(out[i].pw)
+                    {%>
+                        <li class="w3-bar">
+                          <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
+                          <img src="/pics/img_avatar<%=pic%>.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+                          <div class="w3-bar-item">
+                            <span class="w3-large"><%=out[i].user%></span><br>
+                            <span>PW: <%=out[i].pw%></span>
+                          </div>
+                        </li>
+                    <%}else
+                    {%>
+                        <li class="w3-bar">
+                          <span onclick="this.parentElement.style.display='none'" class="w3-bar-item w3-button w3-white w3-xlarge w3-right">×</span>
+                          <img src="/pics/img_avatar<%=pic%>.png" class="w3-bar-item w3-circle w3-hide-small" style="width:85px">
+                          <div class="w3-bar-item">
+                            <span class="w3-large"><%=out[i].user%></span><br>
+                          </div>
+                        </li>
+                    <%}
+                  }%>
+            <%}%>
+                  
+        </ul>
+    </div>
+    <div class="w3-container w3-quarter"></div>
+      
+</body>
+</html>
