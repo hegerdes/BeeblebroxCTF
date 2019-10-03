@@ -1,0 +1,12 @@
+#Things to do
+
+configure Node
+    Route Port 8000 to 80
+
+SpellCheck
+
+Levels:
+    sort unique
+    wireshark
+    nmap2 with add on cve
+
