@@ -1,0 +1,16 @@
+#All ignored files
+
+#Build Stuff
+**/build/*
+**/Build/*
+**/Postman/*
+Tools/__pycache__/*
+
+#Config stuff
+.vscode/*
+NodeJSServer/node_modules/*
+
+#Files
+**/postman.tar.gz
+tmp.txt
+NodeJSServer/logs/*
